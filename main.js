@@ -4,7 +4,7 @@ const productos = [
       id: "1",
       nombre: "FUNDA DIAMOND",
       marca: "APPLE",
-      imagen: "./img/Funda_diamond.jpeg",
+      imagen: "./img/funda_diamond.jpeg",
       precio: 3800
   },
   {
@@ -51,13 +51,9 @@ function cargarProductos() {
 
 cargarProductos();
 
-const catalogo = productos.map((el) => {
-  return {
-      nombre: el.nombre,
-      precio: el.precio *10
-  }
+const catalogo = productos.map((el) => {el.nombre, el.precio * 1.25
 })
-console.log(catalogo);
+alert(catalogo);
 
 let articuloElegido = Number(prompt("INGRESE EL NUMERO DEL ARTICULO QUE DESEA COMPRAR: \n 1) FUNDA DIAMOND \n 2) FUNDA BUMPER CASE \n 3) FUNDA ANTISHOCK"));
 
