@@ -204,7 +204,7 @@ function seguirComprando() {
         return articuloElegido;
     }
     else {
-        alert("MUCHAS GRACIAS POR ELEJIRNOS");
+        alert("¡CHOCA ESOS 5! MUCHAS GRACIAS POR ELEJIRNOS");
     }
 
 }
