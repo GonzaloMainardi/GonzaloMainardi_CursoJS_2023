@@ -51,11 +51,15 @@ function cargarProductos() {
 
 cargarProductos();
 
-const catalogo = productos.map((el) => {el.nombre, el.precio * 1.25
-})
-alert(catalogo);
+let cantidadProductos = productos.length
 
-let articuloElegido = Number(prompt("INGRESE EL NUMERO DEL ARTICULO QUE DESEA COMPRAR: \n 1) FUNDA DIAMOND \n 2) FUNDA BUMPER CASE \n 3) FUNDA ANTISHOCK"));
+alert(`DISPONEMOS SOLO ${cantidadProductos} PRODUCTOS PARA OFRECER, QUIERE VER EL CATALOGO?`)
+
+const catalogoDeProductos = productos.map(({ nombre, precio }) => ({ nombre, precio }));
+
+alert(`NUESTRO CATALOGO: \n \n - LA ${productos[0].nombre} CUESTA ${productos[0].precio} \n - LA ${productos[1].nombre} CUESTA ${productos[1].precio} \n - LA ${productos[2].nombre} CUESTA ${productos[2].precio}`)
+
+let articuloElegido = Number(prompt("INGRESE EL NUMERO DEL ARTICULO QUE DESEA COMPRAR: \n\n 1) FUNDA DIAMOND \n 2) FUNDA BUMPER CASE \n 3) FUNDA ANTISHOCK \n"));
 
 do {
     switch (articuloElegido) {
@@ -121,7 +125,7 @@ do {
 } while (articuloElegido === 1 || articuloElegido == 2 || articuloElegido == 3)
 
 function ConsultarColor () {
-    let color = parseInt(prompt("INGRESE EL NUMERO DEL COLOR QUE DESEA COMPRAR: \n1) NEGRO \n 2) AZUL \n 3) ROJO \n 4) ROSA \n 5) BLANCO"))
+    let color = parseInt(prompt("INGRESE EL NUMERO DEL COLOR QUE DESEA COMPRAR: \n\n1) NEGRO \n 2) AZUL \n 3) ROJO \n 4) ROSA \n 5) BLANCO \n"))
         if (color == 1) {
             color = "NEGRO";
         }
@@ -150,7 +154,7 @@ function ConsultarCantidad (producto) {
 }
 
 function ConsultarFormaPago () {
-    let forma = prompt("INGRESE EL NUMERO DE LA FORMA DE PAGO DESEADA: \n 1) EFECTIVO O DEBITO \n 2) TARJETA DE CREDITO");
+    let forma = prompt("INGRESE EL NUMERO DE LA FORMA DE PAGO DESEADA: \n\n 1) EFECTIVO O DEBITO \n 2) TARJETA DE CREDITO \n");
     if (forma == 1) {
         console.log("USTED DECIDIO ABONAR EN EFECTIVO/DEBITO");
     }
@@ -170,7 +174,7 @@ function CalcularMonto (precio,cantidad) {
 }
 
 function calcularCuota (monto) {
-    let cuotas = prompt("ELIJA CANTIDAD DE CUOTAS: \n 1 CUOTA SIN INTERES \n 3 CUOTAS SIN INTERES \n 6 COUTAS CON 10% DE RECARGO");
+    let cuotas = prompt("ELIJA CANTIDAD DE CUOTAS: \n\n 1 CUOTA SIN INTERES \n 3 CUOTAS SIN INTERES \n 6 COUTAS CON 10% DE RECARGO \n");
     if (cuotas == 1) {
         console.log("USTED ELIJIO ABONAR CON TARJETA DE CREDITO EN 1 CUOTA SIN INTERES");
         montoCuota = monto
@@ -196,7 +200,7 @@ function seguirComprando() {
 
     var opcion = confirm("¿DESEA REALIZAR OTRA COMPRA?")
     if (opcion == true) {
-        let articuloElegido = Number(prompt("INGRESE EL NUMERO DEL ARTICULO QUE DESEA COMPRAR: \n 1) FUNDA DIAMOND \n 2) FUNDA BUMPER CASE \n 3) FUNDA ANTISHOCK"));
+        let articuloElegido = Number(prompt("INGRESE EL NUMERO DEL ARTICULO QUE DESEA COMPRAR: \n 1) FUNDA DIAMOND \n 2) FUNDA BUMPER CASE \n 3) FUNDA ANTISHOCK \n"));
         return articuloElegido;
     }
     else {
