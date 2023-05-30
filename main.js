@@ -66,15 +66,15 @@ function actualizarBtnsComprar () {
 }
 
 function agregarAlCarrito(e) {
-    Swal.fire({
-        width: "15rem",
-        height: "1rem",
-        position: 'top-end',
-        icon: 'success',
-        title: 'PRODUCTO AGREGADO',
-        showConfirmButton: false,
-        timer: 500, 
-      })
+    Toastify({
+        text: "PRODUCTO AGREGADO",
+        duration: 1000,
+        gravity: "top", 
+        position: "center",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+      }).showToast();
     const btnId = e.currentTarget.id;
     const productoEnCarrito = productos.find(producto => producto.id === btnId);
 
