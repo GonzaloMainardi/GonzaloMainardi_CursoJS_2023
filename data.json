@@ -1,0 +1,24 @@
+[
+    {
+        "id": "1",
+        "nombre": "FUNDA DIAMOND",
+        "marca": "APPLE",
+        "imagen": "./img/funda_diamond.jpeg",
+        "precio": 3800
+    },
+    {
+        "id": "2",
+        "nombre": "FUNDA BUMPER CASE",
+        "marca": "APLLE",
+        "imagen": "./img/funda_bumpercase.jpeg",
+        "precio": 3200
+    },
+    {
+        "id": "3",
+        "nombre": "FUNDA ANTISHOCK",
+        "marca": "APPLE",
+        "imagen": "./img/funda_antishock.jpeg",
+        "precio": 2500
+    }
+  
+  ]

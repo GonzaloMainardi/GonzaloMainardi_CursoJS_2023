@@ -1,61 +1,42 @@
-const productos = [
+const traerDatos = async () => {
+    try{
+    const response = await fetch("./data.json");
+    productos = await response.json();
+    contenedorProductos.innerHTML = "";
 
-  {
-      id: "1",
-      nombre: "FUNDA DIAMOND",
-      marca: "APPLE",
-      imagen: "./img/funda_diamond.jpeg",
-      precio: 3800
-  },
-  {
-      id: "2",
-      nombre: "FUNDA BUMPER CASE",
-      marca: "APLLE",
-      imagen: "./img/funda_bumpercase.jpeg",
-      precio: 3200,
-  },
-  {
-      id: "3",
-      nombre: "FUNDA ANTISHOCK",
-      marca: "APPLE",
-      imagen: "./img/funda_antishock.jpeg",
-      precio: 2500,
-  },
+    productos.forEach((producto) => {
+    
+        const contenedor = document.createElement("div")
+        contenedor.innerHTML = `
+        <div class="card" style="width: 18rem;">
+            <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+            <div class="producto-info">
+                <h5 class="producto-nombre">${producto.nombre}</h5>
+                <h3 class="producto-precio">$${producto.precio}</h3>
+                <a href="#" class="btn-comprar" id="${producto.id}">AÑADIR AL CARRITO</a>
+            </div>
+        </div>
+        `;
+    
+        contenedorProductos.append(contenedor)
+    
+    });  
+  
+    actualizarBtnsComprar()
 
-]
+    }
+
+    catch (error){
+        alert("error")
+    }
+}
+
+traerDatos()
 
 const contenedorProductos = document.getElementById("home-productos")
 let btnsComprar = document.querySelectorAll(".btn-comprar")
 
 let carrito = []
-
-function cargarProductos() {
-
-  contenedorProductos.innerHTML = "";
-
-  productos.forEach((producto) => {
-  
-      const contenedor = document.createElement("div")
-      contenedor.innerHTML = `
-      <div class="card" style="width: 18rem;">
-          <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
-          <div class="producto-info">
-              <h5 class="producto-nombre">${producto.nombre}</h5>
-              <h3 class="producto-precio">$${producto.precio}</h3>
-              <a href="#" class="btn-comprar" id="${producto.id}">AÑADIR AL CARRITO</a>
-          </div>
-      </div>
-      `;
-  
-      contenedorProductos.append(contenedor)
-  
-  });  
-
-  actualizarBtnsComprar()
-  
-}
-
-cargarProductos();
 
 function actualizarBtnsComprar () {
     btnsComprar = document.querySelectorAll(".btn-comprar")
